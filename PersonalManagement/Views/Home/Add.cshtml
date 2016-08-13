@@ -1,0 +1,24 @@
+﻿@model PersonalManagement.ViewModels.AddViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row ">
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm("Add", "Home"))
+        {
+            @Html.Label("Имя", new { @class = "col-md-2 control-label", @style = "width:150px" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Person.FirstName, new { @class = "form-control", @style = "width:150px" })
+            </div>
+            @Html.Label("Фамилия", new { @class = "col-md-2 control-label", @style = "width:150px" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Person.SecondName, new { @class = "form-control", @style = "width:150px" })
+            </div>
+            @Html.Label("Телефон", new { @class = "col-md-2 control-label", @style = "width:150px" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Person.PhoneNumber, new { @class = "form-control", @style = "width:150px" })
+            </div>
+            <input type="submit" value="Записать в базу" class="btn btn-primary btn-large" style="margin:10px;" />
+        }
+    </div>
+</div>

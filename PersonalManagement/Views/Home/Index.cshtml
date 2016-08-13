@@ -1,0 +1,43 @@
+﻿@model PersonalManagement.ViewModels.IndexViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container" style="margin:50px;">
+    <div class="row ">
+        <div class="col-md-4 col-md-offset-4">
+            @Html.ActionLink("Добавить", "Add", "Home", null, new { @class = "btn btn-primary btn-large" })
+            <div style="margin:10px;">
+                <table>
+                    <tr>
+                        <th>
+                            Имя
+                        </th>
+                        <th>
+                            Фамилия
+                        </th>
+                        <th>
+                            Телефон
+                        </th>
+                    </tr>
+                    @foreach (var item in Model.PersonCollection)
+                    {
+                        <tr>
+                            <th>
+                                @Html.Label(item.FirstName)
+                            </th>
+                            <th>
+                                @Html.Label(item.SecondName)
+                            </th>
+                            <th>
+                                @Html.Label(item.PhoneNumber)
+                            </th>
+                            <th>
+                                @Html.ActionLink("Удалить", "Delete", "Home", new { id = item.Id.ToString() }, new { @class = "btn btn-primary btn-large" })
+                            </th>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
